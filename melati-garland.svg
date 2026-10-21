@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldStem" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8C5835"/>
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6E8A68"/>
+      <stop offset="100%" stop-color="#3A4D39"/>
+    </linearGradient>
+    <radialGradient id="roseGrad" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#F7F1E5"/>
+      <stop offset="100%" stop-color="#E4D5BE"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Golden Delicate Vine / Tendril -->
+  <path d="M 10,120 Q 150,60 250,110 T 490,90" fill="none" stroke="url(#goldStem)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 80,100 Q 160,150 220,110 T 380,80" fill="none" stroke="url(#goldStem)" stroke-width="1.2" stroke-opacity="0.7"/>
+
+  <!-- Jasmine Buds & Ronce (Ronce Melati Usap-usap) -->
+  <!-- Flower 1 Left -->
+  <g transform="translate(60, 105)">
+    <!-- Leaves -->
+    <path d="M 0,0 Q -25,-15 -20,-30 Q -5,-20 0,0 Z" fill="url(#leafGrad)"/>
+    <!-- Petals -->
+    <ellipse cx="0" cy="0" rx="6" ry="12" fill="#FFFFFF" stroke="#E6DDD0" stroke-width="0.5"/>
+    <ellipse cx="0" cy="0" rx="12" ry="6" fill="#FFFFFF" stroke="#E6DDD0" stroke-width="0.5"/>
+    <ellipse cx="0" cy="0" rx="8" ry="8" fill="#FBF9F4" transform="rotate(45)"/>
+    <circle cx="0" cy="0" r="2.5" fill="#E6C875"/>
+  </g>
+
+  <!-- Flower 2 (Center-Left White Rose) -->
+  <g transform="translate(170, 85)">
+    <!-- Deep Leaves -->
+    <path d="M -10,10 Q -40,30 -50,15 Q -30,-5 -10,10 Z" fill="url(#leafGrad)"/>
+    <path d="M 10,-10 Q 30,-35 45,-25 Q 35,5 10,-10 Z" fill="url(#leafGrad)"/>
+    <!-- Rose Outer Petals -->
+    <circle cx="0" cy="0" r="22" fill="url(#roseGrad)" stroke="#D4AF37" stroke-width="0.8"/>
+    <path d="M -15,-5 C -20,-18 5,-22 15,-10 C 22,5 5,20 -10,15 Z" fill="#FFFFFF" stroke="#E4D5BE" stroke-width="0.5"/>
+    <path d="M -8,-2 C -10,-10 8,-12 10,-5 C 12,5 0,10 -8,-2 Z" fill="#FDFBF7"/>
+    <circle cx="0" cy="0" r="4" fill="#E6C875" opacity="0.8"/>
+  </g>
+
+  <!-- Flower 3 (Center Jasmine Cluster) -->
+  <g transform="translate(260, 110)">
+    <circle cx="-15" cy="5" r="7" fill="#FFFFFF" stroke="#E6DDD0" stroke-width="0.5"/>
+    <circle cx="-15" cy="5" r="2" fill="#D4AF37"/>
+    <circle cx="15" cy="-5" r="7" fill="#FFFFFF" stroke="#E6DDD0" stroke-width="0.5"/>
+    <circle cx="15" cy="-5" r="2" fill="#D4AF37"/>
+    <circle cx="0" cy="0" r="10" fill="#FFFFFF" stroke="#E6DDD0" stroke-width="0.5"/>
+    <circle cx="0" cy="0" r="3" fill="#D4AF37"/>
+  </g>
+
+  <!-- Flower 4 (Center-Right White Rose) -->
+  <g transform="translate(350, 95)">
+    <path d="M 10,10 Q 40,25 45,10 Q 25,-10 10,10 Z" fill="url(#leafGrad)"/>
+    <circle cx="0" cy="0" r="20" fill="url(#roseGrad)" stroke="#D4AF37" stroke-width="0.8"/>
+    <path d="M -12,-4 C -16,-15 4,-18 12,-8 C 18,4 4,16 -8,12 Z" fill="#FFFFFF" stroke="#E4D5BE" stroke-width="0.5"/>
+    <circle cx="0" cy="0" r="3.5" fill="#E6C875" opacity="0.8"/>
+  </g>
+
+  <!-- Flower 5 Right Jasmine -->
+  <g transform="translate(440, 90)">
+    <path d="M 0,0 Q 20,-15 25,-30 Q 10,-20 0,0 Z" fill="url(#leafGrad)"/>
+    <ellipse cx="0" cy="0" rx="5" ry="10" fill="#FFFFFF"/>
+    <ellipse cx="0" cy="0" rx="10" ry="5" fill="#FFFFFF"/>
+    <circle cx="0" cy="0" r="2" fill="#E6C875"/>
+  </g>
+
+  <!-- Ronce Pearl Drops / Tetesan Ronce Melati -->
+  <circle cx="120" cy="130" r="3.5" fill="#FAF8F5" stroke="#D4AF37" stroke-width="0.5"/>
+  <circle cx="125" cy="145" r="3" fill="#FAF8F5"/>
+  <circle cx="130" cy="158" r="2.5" fill="#FAF8F5"/>
+
+  <circle cx="300" cy="135" r="3.5" fill="#FAF8F5" stroke="#D4AF37" stroke-width="0.5"/>
+  <circle cx="305" cy="150" r="3" fill="#FAF8F5"/>
+  <circle cx="310" cy="162" r="2.5" fill="#FAF8F5"/>
+</svg>
+

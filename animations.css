@@ -1,0 +1,208 @@
+/* ==================================================
+   ANIMATIONS: MODERN JAVANESE LUXURY WEDDING
+   Cinematic, Smooth, Sophisticated
+   ================================================== */
+
+/* Cover Animations */
+@keyframes coverBgZoom {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.15); }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spinDisc {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shineSweep {
+  0% { transform: translateX(-150%) rotate(30deg); }
+  35%, 100% { transform: translateX(150%) rotate(30deg); }
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* Cover specific animation rules to ensure visibility on load */
+#opening-cover [data-animate] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Base IntersectionObserver Animation Classes */
+[data-animate] {
+  opacity: 0;
+  will-change: opacity, transform, filter;
+  transition-property: opacity, transform, filter;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate].in-view,
+[data-animate].animated,
+[data-animate="stagger"].in-view {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Fade Up */
+[data-animate="fade-up"] {
+  transform: translateY(40px);
+}
+[data-animate="fade-up"].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Down */
+[data-animate="fade-down"] {
+  transform: translateY(-40px);
+}
+[data-animate="fade-down"].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Left */
+[data-animate="fade-left"] {
+  transform: translateX(-50px);
+}
+[data-animate="fade-left"].in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade Right */
+[data-animate="fade-right"] {
+  transform: translateX(50px);
+}
+[data-animate="fade-right"].in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Blur Reveal (Blur to Clear) */
+[data-animate="blur-reveal"] {
+  filter: blur(14px);
+  transform: scale(0.96);
+}
+[data-animate="blur-reveal"].in-view {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Scale Reveal */
+[data-animate="scale-reveal"] {
+  transform: scale(0.88);
+}
+[data-animate="scale-reveal"].in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger Children */
+[data-animate="stagger"] > * {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate="stagger"].in-view > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animate="stagger"].in-view > *:nth-child(1) { transition-delay: 0.05s; }
+[data-animate="stagger"].in-view > *:nth-child(2) { transition-delay: 0.15s; }
+[data-animate="stagger"].in-view > *:nth-child(3) { transition-delay: 0.25s; }
+[data-animate="stagger"].in-view > *:nth-child(4) { transition-delay: 0.35s; }
+[data-animate="stagger"].in-view > *:nth-child(5) { transition-delay: 0.45s; }
+[data-animate="stagger"].in-view > *:nth-child(6) { transition-delay: 0.55s; }
+[data-animate="stagger"].in-view > *:nth-child(7) { transition-delay: 0.65s; }
+[data-animate="stagger"].in-view > *:nth-child(8) { transition-delay: 0.75s; }
+
+/* Modern Keyframes: Audio Wave, Pulsing Rings, Shimmer */
+@keyframes audioWaveAnim {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+@keyframes pulseRipple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(212, 175, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Curtain / Image Mask Reveal */
+.curtain-reveal {
+  position: relative;
+  overflow: hidden;
+}
+.curtain-reveal::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--color-dark-brown);
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 5;
+}
+.curtain-reveal.in-view::after {
+  transform: scaleY(0);
+}
+
+/* Parallax Layer */
+.parallax-element {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate],
+  [data-animate="fade-up"],
+  [data-animate="fade-down"],
+  [data-animate="fade-left"],
+  [data-animate="fade-right"],
+  [data-animate="blur-reveal"],
+  [data-animate="scale-reveal"] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  
+  .cover-bg {
+    animation: none !important;
+  }
+  
+  .btn-open-invitation::before {
+    animation: none !important;
+  }
+}
+

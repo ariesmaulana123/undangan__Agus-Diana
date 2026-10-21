@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>The Wedding of Agus Hermawan & Tiara | Modern Javanese Luxury Wedding</title>
+  
+  <meta name="description" content="Pernikahan Adat Jawa Modern & Sakral - Diana Putri Triani & Agus Hermawan. Sabtu, 05 Desember 2026 di Bekasi.">
+  <meta name="theme-color" content="#FAF6F0">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Wedding of Agus & Diana">
+  <meta property="og:description" content="Modern Javanese Luxury Wedding Invitation - Agus Hermawan & Diana Putri Tiara">
+  <meta property="og:image" content="assets/images/gunung.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css?v=2.1">
+  <link rel="stylesheet" href="animations.css?v=2.1">
+  <link rel="icon" type="image/svg+xml" href="gunung.png">
+
+  <!-- Scripts -->
+  <script src="audio.js?v=2.1" defer></script>
+  <script src="app.js?v=2.1" defer></script>
+</head>
+<body class="cover-locked">
+
+  <!-- Ambient Particle Canvas (Falling Jasmine & Gold Dust) -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- ==================================================
+       OPENING / COVER (FULLSCREEN CINEMATIC EXPERIENCE)
+       ================================================== -->
+  <section id="opening-cover" aria-label="Cover Undangan">
+    <div class="cover-bg"></div>
+    <div class="cover-overlay"></div>
+
+    <div class="cover-content">
+      <!-- Top Subtle Pretitle -->
+      <span class="cover-pretitle" data-animate="fade-down">The Wedding of</span>
+
+      <!-- Center Couple Photo with Elegant Decorative Frame -->
+      <div class="cover-photo-frame-wrapper" data-animate="scale-reveal">
+        <!-- FOTO PENGANTIN COVER (Mudah diganti, cukup ubah src gambar di bawah) -->
+        <div class="cover-photo-inner">
+          <img src="mempelai.jpg" onerror="this.onerror=null; this.src='bride.jpg';" alt="Foto Pengantin Diana & Agus" class="cover-couple-photo" id="coverCouplePhoto" loading="eager">
+        </div>
+      </div>
+      
+      <!-- Couple Names in Calligraphy Script -->
+      <h1 class="cover-names" data-animate="blur-reveal">
+        Agus Hermawan
+        <span class="cover-ampersand">&amp;</span>
+        Diana Putri Tiara
+      </h1>
+
+      <!-- Date Banner -->
+      <div class="cover-date-divider" data-animate="fade-up">
+        <span class="line"></span>
+        <span class="date-text">Sabtu, 05 Desember 2026</span>
+        <span class="line"></span>
+      </div>
+
+      <!-- Guest Card -->
+      <div class="cover-guest-card" data-animate="fade-up">
+        <div class="cover-guest-label">Kepada Yth. Bapak/Ibu/Saudara/i:</div>
+        <div class="cover-guest-name" id="guestName">Tamu Undangan</div>
+      </div>
+
+      <!-- Open Button -->
+      <button type="button" class="btn-open-invitation" id="btnOpenInvitation" data-animate="fade-up">
+        <span id="btnOpenText">Buka Undangan</span>
+        <svg id="btnOpenIcon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       MAIN CONTENT CONTAINER
+       ================================================== -->
+  <main id="main-content">
+
+    <!-- ==================================================
+         SECTION: HERO / BERANDA DALAM (GAMBAR 2: SAMBUTAN & FOTO PENGANTIN) - PALING ATAS
+         ================================================== -->
+    <section id="section-hero" class="section-hero-inner" aria-label="Beranda Undangan">
+      <div class="hero-inner-bg"></div>
+      <div class="hero-inner-overlay"></div>
+
+      <div class="container hero-inner-container">
+        <!-- Pretitle -->
+        <span class="hero-inner-pretitle" data-animate="fade-down">The Wedding Celebration of</span>
+
+        <!-- Center Couple Photo with Elegant Decorative Frame -->
+        <div class="hero-inner-frame-wrapper" data-animate="scale-reveal">
+          <div class="hero-inner-photo-inner">
+            <img src="mempelai.jpg" onerror="this.onerror=null; this.src='bride.jpg';" alt="Agus Hermawan & Diana Putri Tiara" class="hero-inner-couple-photo" loading="eager">
+          </div>
+        </div>
+
+        <!-- Couple Names -->
+        <h1 class="hero-inner-names" data-animate="blur-reveal">
+          Agus Hermawan
+          <span class="hero-inner-ampersand">&amp;</span>
+          Diana Putri Tiara
+        </h1>
+
+        <!-- Date Banner -->
+        <div class="hero-inner-date-divider" data-animate="fade-up">
+          <span class="line"></span>
+          <span class="date-text">Sabtu, 05 Desember 2026</span>
+          <span class="line"></span>
+        </div>
+
+        <!-- Scroll Indicator Hint (menuju ke video di bawahnya) -->
+        <a href="#section-video" class="hero-inner-scroll-hint" data-animate="fade-up" aria-label="Lanjutkan ke Video Undangan">
+          <span class="scroll-text">Gulir ke Bawah</span>
+          <div class="scroll-mouse-icon">
+            <div class="scroll-wheel"></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION: VIDEO STORYTELLING (DI BAWAHNYA HALAMAN GAMBAR 2)
+         ================================================== -->
+    <section id="section-video" class="section-cinematic-video" aria-label="Video Kisah Cinta">
+      <!-- Full-bleed background video container (100% Full Width, Tanpa Garis Tepi) -->
+      <div class="video-cinematic-container">
+        <video id="weddingVideo" class="wedding-cinematic-video" playsinline loop preload="auto" poster="mempelai.jpg">
+          <source src="video.mp4" type="video/mp4">
+          <source src="video.mp4" type="video/mp4">
+          <source src="animasi-pernikahan.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutaran video.
+        </video>
+      </div>
+
+      <!-- Subtle Vignette Overlay -->
+      <div class="video-cinematic-overlay" aria-hidden="true"></div>
+
+      <!-- Scroll Down Hint Indicator -->
+      <a href="#section-joglo" class="video-scroll-indicator" aria-label="Lanjutkan ke bagian berikutnya">
+        <span class="video-scroll-text">Gulir ke Bawah</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" class="video-scroll-chevron">
+          <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ==================================================
+         SECTION: JOGLO ATMOSPHERE & SACRED QUOTE
+         ================================================== -->
+    <section id="section-joglo" class="section-padding joglo-feature-section">
+      <div class="joglo-feature-bg"></div>
+
+      <div class="container">
+        <div class="joglo-quote-card" data-animate="blur-reveal">
+          
+          <img src="gunung.png" alt="Gunungan" style="width: 50px; height: 75px; margin: 0 auto 1.5rem; opacity: 0.9;">
+
+          <!-- Quranic Verse (Ar-Rum: 21) -->
+          <div class="quote-arabic">
+            وَمِنْ ءَايَٰتِهِۦٓ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًۭا لِّتَسْكُنُوٓا۟ إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةًۭ وَرَحْمَةً ۚ إِنَّ فِى ذَٰلِكَ لَءَايَٰتٍۢ لِّقَوْمٍۢ يَتَفَكَّرُونَ
+          </div>
+          
+          <p class="quote-translation">
+            "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."
+          </p>
+          <span class="quote-source">QS. Ar-Rum: 21</span>
+
+          <div class="javanese-philosophy-quote">
+            "Di bawah naungan tradisi,<br>kami memulai perjalanan baru bersama."
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION: MEMPELAI (BRIDE & GROOM) - SINGLE ALBUM
+         ================================================== -->
+    <section id="section-mempelai" class="mempelai-sacred-section" aria-label="Mempelai dan hitung mundur">
+      <div class="mempelai-save-date">
+        <div class="mempelai-save-date-bg">
+          <img src="mempelai.jpg" onerror="this.onerror=null; this.src='bride.jpg';" alt="Agus Hermawan dan Diana Putri Tiara" loading="lazy">
+        </div>
+        <div class="mempelai-save-date-shade"></div>
+
+        <div class="mempelai-save-date-content">
+          <span class="mempelai-save-kicker" data-animate="fade-down">The Wedding Of</span>
+          <h2 class="mempelai-save-names" data-animate="blur-reveal">
+            <span>Agus Hermawan</span>
+            <span class="save-ampersand">&amp;</span>
+            <span>Diana Putri Tiara</span>
+          </h2>
+          <p class="mempelai-save-date-text" data-animate="fade-up">Sabtu, 05 Desember 2026</p>
+          <div class="mempelai-save-script" data-animate="fade-up">Save The Date</div>
+
+          <div class="countdown-grid countdown-grid-overlay" data-animate="scale-reveal">
+            <div class="countdown-item">
+              <div class="countdown-number" id="countDays">00</div>
+              <div class="countdown-label">Hari</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="countHours">00</div>
+              <div class="countdown-label">Jam</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="countMins">00</div>
+              <div class="countdown-label">Menit</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="countSecs">00</div>
+              <div class="countdown-label">Detik</div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-calendar btn-calendar-overlay" id="btnAddToCalendar" data-animate="fade-up">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Simpan ke Kalender</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mempelai-profile-section">
+        <div class="container" style="text-align: center;">
+          <span class="section-label" data-animate="fade-up">Raden &amp; Putri</span>
+          <h2 class="section-title" data-animate="blur-reveal">Mempelai Pengantin</h2>
+          <p class="section-subtitle" data-animate="fade-up">
+            Dengan penuh rasa syukur dan memohon ridho Allah SWT, kami bermaksud melangsungkan pernikahan putra-putri kami:
+          </p>
+
+          <div class="ornament-divider" data-animate="fade-up">
+            <span class="line"></span>
+            <img src="assets/images/gunung.png" class="gunungan-icon" alt="Gunungan">
+            <span class="line"></span>
+          </div>
+
+          <div class="mempelai-single-album-wrapper">
+
+          <!-- KATA-KATA DI BAWAH GAMBAR MEMPELAI -->
+          <div class="couple-quote-card" data-animate="fade-up">
+            <div class="quote-javanese-ornament">* - *</div>
+            <p class="couple-poetic-words">
+              "Dua jiwa yang dipersatukan dalam keagungan takdir dan restu ilahi. Melangkah beriringan dalam ketulusan rasa, saling menguatkan dalam doa, merajut asa membangun mahligai rumah tangga yang sakinah, mawaddah, warahmah."
+            </p>
+            <span class="couple-poetic-sub">~ Janji Suci Dua Insan Menuju Ridho Ilahi ~</span>
+          </div>
+
+          <!-- PROFIL KEDUA MEMPELAI (LENGKAP DENGAN FOTO INDIVIDU DI ATAS NAMA) -->
+          <div class="couple-details-grid" data-animate="fade-up">
+            
+            <!-- Mempelai Pria -->
+            <div class="couple-detail-col groom-detail">
+              <!-- FOTO SANG MEMPELAI PRIA -->
+              <div class="mempelai-profile-avatar">
+                <div class="mempelai-avatar-ring"></div>
+                <img src="Pria.jpg" onerror="this.onerror=null; this.src='groom.jpg';" alt="Agus Hermawan" class="mempelai-avatar-img" loading="lazy">
+              </div>
+
+              <span class="mempelai-role-badge">Mempelai Pria</span>
+              <h3 class="mempelai-name">Agus Hermawan</h3>
+              <p class="mempelai-parents">
+                Putra tercinta dari<br>
+                <strong>Bpk. Bambang Hermawan</strong> &amp; <strong>Ibu Sri Rahayu</strong>
+              </p>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="mempelai-social">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>@agus.hermawan</span>
+              </a>
+            </div>
+
+            <!-- Ampersand Symbol -->
+            <div class="couple-ampersand-divider">
+              <span class="ampersand-circle">&amp;</span>
+            </div>
+
+            <!-- Mempelai Wanita -->
+            <div class="couple-detail-col bride-detail">
+              <!-- FOTO SANG MEMPELAI WANITA -->
+              <div class="mempelai-profile-avatar">
+                <div class="mempelai-avatar-ring"></div>
+                <img src="Wanita.jpg" onerror="this.onerror=null; this.src='bride.jpg';" alt="Diana Putri Tiara" class="mempelai-avatar-img" loading="lazy">
+              </div>
+
+              <span class="mempelai-role-badge">Mempelai Wanita</span>
+              <h3 class="mempelai-name">Diana Putri Tiara</h3>
+              <p class="mempelai-parents">
+                Putri tercinta dari<br>
+                <strong>Bpk. Parsono</strong> &amp; <strong>Ibu Muriyah</strong>
+              </p>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="mempelai-social">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>@dianaputri.tiara</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION: ACARA / EVENT DETAILS
+         ================================================== -->
+    <section id="section-acara" class="section-padding bg-batik-subtle">
+      <div class="container" style="text-align: center;">
+
+        <span class="section-label" data-animate="fade-up">Rangkaian Acara</span>
+        <h2 class="section-title" data-animate="blur-reveal">Akad &amp; Resepsi Pernikahan</h2>
+        <p class="section-subtitle" data-animate="fade-up">
+          Merupakan kehormatan bagi kami atas kehadiran dan doa restu Bapak/Ibu/Saudara/i sekalian.
+        </p>
+
+        <div class="ornament-divider" data-animate="fade-up">
+          <span class="line"></span>
+          <img src="gunung.png" class="gunungan-icon" alt="Gunungan">
+          <span class="line"></span>
+        </div>
+
+        <div class="event-grid">
+          
+          <!-- AKAD NIKAH -->
+          <div class="event-card" data-animate="fade-up">
+            <div class="event-icon-badge">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            
+            <h3 class="event-name">Akad Nikah</h3>
+            
+            <div class="event-date-badge">Sabtu, 05 Desember 2026</div>
+            <div class="event-time">Pukul 08.00 - Selesai</div>
+            
+            <div class="event-location-title">Akad Nikah</div>
+            <p class="event-address">
+              kp lubang buaya, RT.003/rw009/RW.004, Cijengkol, Kec. Setu, Kota Bks, Jawa Barat 17320
+            </p>
+
+            <a href="https://maps.app.goo.gl/69TStH3Zm6gutNBA8" target="_blank" rel="noopener noreferrer" class="btn-maps">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Buka Google Maps</span>
+            </a>
+          </div>
+
+          <!-- RESEPSI PERNIKAHAN -->
+          <div class="event-card" data-animate="fade-up" style="transition-delay: 0.2s;">
+            <div class="event-icon-badge">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+            
+            <h3 class="event-name">Resepsi Pernikahan</h3>
+            
+            <div class="event-date-badge">Minggu, 06 Desember 2026</div>
+            <div class="event-time">Pukul 08.00 - Selesai</div>
+            
+            <div class="event-location-title">Grand Joglo Ballroom Kencana</div>
+            <p class="event-address">
+              kp lubang buaya, RT.003/rw009/RW.004, Cijengkol, Kec. Setu, Kota Bks, Jawa Barat 17320
+            </p>
+
+            <a href="https://maps.app.goo.gl/69TStH3Zm6gutNBA8" target="_blank" rel="noopener noreferrer" class="btn-maps">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Buka Google Maps</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Dresscode Note -->
+        <div style="margin-top: 3.5rem; display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1.8rem; background: var(--color-warm-white); border: var(--border-gold-subtle); border-radius: var(--radius-full); box-shadow: var(--shadow-sm);" data-animate="fade-up">
+          <span style="font-size: 0.85rem; color: var(--color-sogan); font-weight: 600;">Dresscode:</span>
+          <span style="font-size: 0.85rem; color: var(--color-text-muted);">Batik Modern / Earth Tone / Sogan Palette</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION: GALLERY (LUXURY WEDDING PHOTO ALBUM)
+         ================================================== -->
+    <section id="section-galeri" class="section-padding bg-batik-subtle section-gallery">
+      <div class="container" style="text-align: center;">
+
+        <span class="section-label" data-animate="fade-up">Galeri Kenangan</span>
+        <h2 class="section-title" data-animate="blur-reveal">Album Momen Bahagia</h2>
+        <p class="section-subtitle" data-animate="fade-up">
+          Potret kebahagiaan dan kehangatan tradisi yang terabadikan dalam lembaran kisah cinta Diana Putri Tiara &amp; Agus Hermawan
+        </p>
+
+        <div class="ornament-divider" data-animate="fade-up">
+          <span class="line"></span>
+          <img src="gunung.png" class="gunungan-icon" alt="Gunungan">
+          <span class="line"></span>
+        </div>
+
+        <!-- 3 Kotak Persegi Panjang untuk Penempatan Foto Galeri -->
+        <div class="gallery-grid" id="weddingGalleryGrid">
+          
+          <!-- KOTAK 1 (Persegi Panjang): Pasangan Mempelai -->
+          <div class="gallery-item" data-category="mempelai" data-animate="fade-up" data-index="0">
+            <div class="gallery-item-image-box">
+              <img src="mempelai.jpg" onerror="this.onerror=null; this.src='bride.jpg';" alt="Diana Putri Tiara &amp; Agus Hermawan - Janji Suci Dua Insan" loading="lazy">
+              <div class="gallery-item-badge">✨ Mempelai</div>
+            </div>
+            <div class="gallery-item-overlay">
+              <div class="gallery-item-meta">
+                <span class="gallery-tag">Janji Suci</span>
+                <h4 class="gallery-item-caption">Diana Putri Tiara &amp; Agus Hermawan &bull; Janji Suci Menuju Pelaminan</h4>
+              </div>
+              <div class="gallery-zoom-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- KOTAK 2 (Persegi Panjang): Suasana Lembayung Joglo -->
+          <div class="gallery-item" data-category="momen" data-animate="fade-up" style="transition-delay: 0.15s;" data-index="1">
+            <div class="gallery-item-image-box">
+              <img src="cover-bg.jpg" onerror="this.onerror=null; this.src='BG1.jpg';" alt="Lembayung Joglo - Kehangatan Tradisi Jawa" loading="lazy">
+              <div class="gallery-item-badge">🏛️ Suasana Joglo</div>
+            </div>
+            <div class="gallery-item-overlay">
+              <div class="gallery-item-meta">
+                <span class="gallery-tag">Nuansa Sakral</span>
+                <h4 class="gallery-item-caption">Di Bawah Lembayung Joglo &bull; Kehangatan Tradisi Jawa</h4>
+              </div>
+              <div class="gallery-zoom-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- KOTAK 3 (Persegi Panjang): Gapura Sakral -->
+          <div class="gallery-item" data-category="momen" data-animate="fade-up" style="transition-delay: 0.3s;" data-index="2">
+            <div class="gallery-item-image-box">
+              <img src="mempelai1.jpg" onerror="this.onerror=null; this.src='cover-bg.jpg';" alt="Gerbang Sakral Menuju Mahligai Cinta" loading="lazy">
+              <div class="gallery-item-badge">🌿 Gapura Sakral</div>
+            </div>
+            <div class="gallery-item-overlay">
+              <div class="gallery-item-meta">
+                <span class="gallery-tag">Gerbang Tradisi</span>
+                <h4 class="gallery-item-caption">Gerbang Gebyok Sakral &bull; Menuju Mahligai Pernikahan</h4>
+              </div>
+              <div class="gallery-zoom-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION: RSVP & BUKU TAMU DIGITAL
+         ================================================== -->
+    <section id="section-rsvp" class="section-padding bg-dark-javanese">
+      <div class="container" style="text-align: center;">
+
+        <span class="section-label" data-animate="fade-up">Konfirmasi Kehadiran</span>
+        <h2 class="section-title" data-animate="blur-reveal">RSVP &amp; Doa Restu</h2>
+        <p class="section-subtitle" data-animate="fade-up">
+          Merupakan suatu kehormatan bagi kami atas konfirmasi kehadiran Bapak/Ibu/Saudara/i untuk melengkapi kebahagiaan kami.
+        </p>
+
+        <div class="ornament-divider" data-animate="fade-up">
+          <span class="line"></span>
+          <img src="gunung.png" class="gunungan-icon" alt="Gunungan">
+          <span class="line"></span>
+        </div>
+
+        <!-- RSVP Form -->
+        <div class="rsvp-card-wrapper" data-animate="scale-reveal">
+          <form id="rsvpForm">
+            <div class="form-group">
+              <label for="rsvpName" class="form-label">Nama Lengkap</label>
+              <input type="text" id="rsvpName" class="form-input" placeholder="Masukkan nama lengkap Anda" required>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvpCount" class="form-label">Jumlah Tamu</label>
+              <select id="rsvpCount" class="form-select">
+                <option value="1">1 Orang</option>
+                <option value="2">2 Orang</option>
+                <option value="3">3 Orang</option>
+                <option value="4">4 Orang</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvpStatus" class="form-label">Status Kehadiran</label>
+              <select id="rsvpStatus" class="form-select" required>
+                <option value="Hadir">Hadir</option>
+                <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
+                <option value="Masih Belum Pasti">Masih Belum Pasti</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvpMessage" class="form-label">Ucapan &amp; Doa Restu</label>
+              <textarea id="rsvpMessage" class="form-textarea" placeholder="Tuliskan doa dan harapan terbaik untuk kedua mempelai..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit-rsvp">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+              </svg>
+              <span>Kirim Konfirmasi Kehadiran</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Live Interactive Wishes Wall -->
+        <div class="wishes-wall-container" data-animate="fade-up">
+          <h4 style="font-family: var(--font-serif-romantic); font-size: 1.5rem; color: #4A2E1C; margin-bottom: 1.5rem;">
+            Doa &amp; Harapan Hangat
+          </h4>
+          <div class="wishes-list" id="wishesList">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION: WEDDING GIFT (AMPLOP DIGITAL)
+         ================================================== -->
+    <section id="section-gift" class="section-padding bg-batik-subtle">
+      <div class="container" style="text-align: center;">
+
+        <span class="section-label" data-animate="fade-up">Tanda Kasih</span>
+        <h2 class="section-title" data-animate="blur-reveal">Wedding Gift</h2>
+        <p class="section-subtitle" data-animate="fade-up">
+          Doa restu Anda adalah hadiah terindah bagi kami. Namun apabila Anda ingin memberikan tanda kasih secara digital, kami menyediakannya dengan penuh kerendahan hati:
+        </p>
+
+        <div class="ornament-divider" data-animate="fade-up">
+          <span class="line"></span>
+          <img src="gunung.png" class="gunungan-icon" alt="Gunungan">
+          <span class="line"></span>
+        </div>
+
+        <div class="gift-grid">
+          
+          <!-- REKENING 1: BCA (LUXURY BANK CARD DESIGN) -->
+          <div class="gift-card gift-card-bca" data-animate="fade-up">
+            <div class="card-metallic-glare"></div>
+            <div class="card-top-row">
+              <div class="card-chip-graphic">
+                <span class="chip-line"></span><span class="chip-line"></span>
+              </div>
+              <div class="gift-bank-badge">BCA</div>
+            </div>
+            <div class="card-number-label">Nomor Rekening</div>
+            <div class="gift-acc-number" id="accNumberBca">8820 1234 5678</div>
+            <div class="gift-acc-holder">a.n. Agus Hermawan</div>
+            <button type="button" class="btn-copy-acc" data-acc="882012345678">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Salin Nomor Rekening</span>
+            </button>
+          </div>
+
+          <!-- REKENING 2: MANDIRI (LUXURY BANK CARD DESIGN) -->
+          <div class="gift-card gift-card-mandiri" data-animate="fade-up" style="transition-delay: 0.15s;">
+            <div class="card-metallic-glare"></div>
+            <div class="card-top-row">
+              <div class="card-chip-graphic">
+                <span class="chip-line"></span><span class="chip-line"></span>
+              </div>
+              <div class="gift-bank-badge">MANDIRI</div>
+            </div>
+            <div class="card-number-label">Nomor Rekening</div>
+            <div class="gift-acc-number" id="accNumberMandiri">1370 0192 8374</div>
+            <div class="gift-acc-holder">a.n. Diana Putri Tiara</div>
+            <button type="button" class="btn-copy-acc" data-acc="137001928374">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Salin Nomor Rekening</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Tombol Buka QRIS -->
+        <div class="gift-qris-action" data-animate="fade-up">
+          <button type="button" class="btn-open-qris" id="btnOpenQris">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Scan QRIS / e-Wallet</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION: CLOSING (VISUAL CLIMAX)
+         ================================================== -->
+    <section id="section-closing" class="closing-section">
+      <div class="closing-bg"></div>
+
+      <div class="closing-content">
+        <!-- Gunungan Final Climax -->
+        <img src="gunung.png" alt="Gunungan Wayang" class="closing-gunungan" data-animate="scale-reveal">
+
+        <div class="closing-thanks" data-animate="fade-down">
+          Jazakumullahu Khairan Katsiran
+        </div>
+
+        <p class="closing-family" data-animate="fade-up">
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.
+        </p>
+
+        <!-- Final Couple Names -->
+        <h2 class="closing-names" data-animate="blur-reveal">
+          Diana Putri Tiara
+          <span class="closing-ampersand">&amp;</span>
+          Agus Hermawan
+        </h2>
+
+        <!-- Family Sign Off -->
+        <p style="font-size: 0.88rem; color: #784520; font-weight: 500; margin-bottom: 2.5rem;" data-animate="fade-up">
+          Keluarga Besar Bpk. Bambang Hermawan &amp; Keluarga Besar Bpk. Triyono Wibowo
+        </p>
+
+        <div class="closing-footer" data-animate="fade-up">
+          &copy; 2026 The Wedding of Diana Putri T. &amp; Agus Hermawan &bull; Modern Javanese Luxury Wedding
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- ==================================================
+       FLOATING NAVIGATION BAR (DOCK WITH SCROLL SPY)
+       ================================================== -->
+  <nav class="floating-navbar" id="floatingNavbar" aria-label="Navigasi Undangan">
+    <a href="#section-hero" class="floating-nav-link active" data-target="section-hero" aria-label="Beranda">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      </svg>
+      <span>Awal</span>
+    </a>
+    <a href="#section-mempelai" class="floating-nav-link" data-target="section-mempelai" aria-label="Mempelai">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>Mempelai</span>
+    </a>
+    <a href="#section-acara" class="floating-nav-link" data-target="section-acara" aria-label="Acara">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      <span>Acara</span>
+    </a>
+    <a href="#section-video" class="floating-nav-link" data-target="section-video" aria-label="Video Kisah Cinta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+      <span>Kisah</span>
+    </a>
+    <a href="#section-galeri" class="floating-nav-link" data-target="section-galeri" aria-label="Galeri">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+        <polyline points="21 15 16 10 5 21"></polyline>
+      </svg>
+      <span>Galeri</span>
+    </a>
+    <a href="#section-rsvp" class="floating-nav-link" data-target="section-rsvp" aria-label="RSVP">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+      <span>RSVP</span>
+    </a>
+    <a href="#section-gift" class="floating-nav-link" data-target="section-gift" aria-label="Hadiah">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="20 12 20 22 4 22 4 12"></polyline>
+        <rect x="2" y="7" width="20" height="5"></rect>
+        <line x1="12" y1="22" x2="12" y2="7"></line>
+        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+      </svg>
+      <span>Kado</span>
+    </a>
+  </nav>
+
+  <!-- ==================================================
+       MODERN LIGHTBOX MODAL FOR GALLERY (NATIVE HTML5 DIALOG)
+       ================================================== -->
+  <dialog id="galleryLightbox" class="gallery-lightbox-dialog" closedby="any" aria-label="Pratinjau Foto Galeri">
+    <div class="lightbox-dialog-inner">
+      <!-- Lightbox Header Controls -->
+      <div class="lightbox-header-bar">
+        <div class="lightbox-counter-pill" id="lightboxCounter">1 / 7</div>
+        <button type="button" class="lightbox-btn-close" id="lightboxClose" aria-label="Tutup Pratinjau">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Main Photo Frame -->
+      <div class="lightbox-image-stage">
+        <button type="button" class="lightbox-nav-btn prev" id="lightboxPrev" aria-label="Foto Sebelumnya">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="lightbox-photo-wrap">
+          <img id="lightboxImg" src="" alt="Pratinjau Foto Pernikahan">
+        </div>
+
+        <button type="button" class="lightbox-nav-btn next" id="lightboxNext" aria-label="Foto Berikutnya">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Caption Footer -->
+      <div class="lightbox-footer-caption" id="lightboxCaption">
+        Diana &amp; Agus &bull; Janji Suci Dua Insan
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ==================================================
+       QRIS MODAL / DIGITAL GIFT SCANNER
+       ================================================== -->
+  <dialog id="qrisModal" class="qris-dialog" closedby="any" aria-label="QRIS Tanda Kasih">
+    <div class="qris-dialog-inner">
+      <div class="qris-dialog-header">
+        <h3 class="qris-title">QRIS Tanda Kasih</h3>
+        <button type="button" class="qris-btn-close" id="qrisCloseBtn" aria-label="Tutup QRIS">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <p class="qris-subtitle">Scan melalui aplikasi m-Banking (BCA, Mandiri, BNI, BRI) atau e-Wallet (GoPay, OVO, ShopeePay, Dana):</p>
+      <div class="qris-qr-box">
+        <!-- Gambar QRIS Asli -->
+        <img src="barcode.png" alt="QRIS Tanda Kasih Diana & Agus" class="qris-qr-img" width="180" height="180" />
+      </div>
+      <p class="qris-note">Matur nuwun sanget atas doa restu &amp; tanda kasih panjenengan.</p>
+    </div>
+  </dialog>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" role="alert">Nomor rekening berhasil disalin.</div>
+</body>
+</html>
+

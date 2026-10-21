@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldWayang" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7E6B5"/>
+      <stop offset="35%" stop-color="#D4AF37"/>
+      <stop offset="70%" stop-color="#997327"/>
+      <stop offset="100%" stop-color="#E5C158"/>
+    </linearGradient>
+    <linearGradient id="soganWayang" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5C3B24" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#24150D" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Central Love / Sacred Union Heart Glow -->
+  <radialGradient id="centerHeartGlow" cx="50%" cy="40%" r="50%">
+    <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.25"/>
+    <stop offset="60%" stop-color="#845334" stop-opacity="0.08"/>
+    <stop offset="100%" stop-color="#140D09" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="400" cy="260" r="220" fill="url(#centerHeartGlow)"/>
+
+  <!-- LEFT FIGURE: SATRIA / GROOM (RADEN ARJUNA / RAMA SILHOUETTE) -->
+  <g transform="translate(180, 70) scale(0.7)" filter="url(#softGlow)">
+    <!-- Crown / Makuta Satria Jawa -->
+    <path d="M 120,70 C 110,40 130,20 160,15 C 155,35 170,45 190,50 C 180,75 140,80 120,70 Z" fill="url(#goldWayang)"/>
+    <path d="M 160,15 C 170,-10 190,-15 210,-5 C 200,15 180,25 160,15 Z" fill="url(#goldWayang)"/>
+    <!-- Jamang & Garuda Mungkur Behind Head -->
+    <path d="M 80,75 C 60,60 50,30 35,45 C 45,70 70,85 80,75 Z" fill="url(#goldWayang)"/>
+    <path d="M 70,85 C 50,95 40,120 20,115 C 30,140 65,130 80,110 Z" fill="url(#goldWayang)"/>
+
+    <!-- Profile Face: Luruh, Halus, Satria Jawa -->
+    <path d="M 120,70 C 135,75 150,85 160,100 C 168,115 165,130 155,140 C 162,148 165,158 152,168 C 145,175 135,178 125,180 C 105,185 90,165 85,140 C 80,105 100,80 120,70 Z" fill="url(#goldWayang)"/>
+    <!-- Slanted Noble Eye (Mripat Liyepan) -->
+    <path d="M 130,110 Q 148,112 155,105 Q 142,118 130,110 Z" fill="#2B1A12"/>
+    <!-- Noble Smile Line & Sumping (Earring) -->
+    <path d="M 135,152 Q 145,155 150,150" stroke="#2B1A12" stroke-width="2" fill="none"/>
+    <path d="M 90,125 C 75,120 70,145 80,155 C 95,150 95,130 90,125 Z" fill="url(#goldWayang)"/>
+
+    <!-- Slender Neck & Torso / Dada Gagah -->
+    <path d="M 105,180 C 95,220 80,260 70,300 C 60,350 75,410 90,470 C 110,470 170,470 190,470 C 195,400 185,340 175,290 C 160,230 135,185 120,180 Z" fill="url(#soganWayang)" stroke="url(#goldWayang)" stroke-width="2"/>
+
+    <!-- Kalung Ulur / Royal Necklace & Kelat Bahu (Armlets) -->
+    <path d="M 95,220 Q 130,260 165,220 Q 130,240 95,220 Z" fill="url(#goldWayang)"/>
+    <circle cx="130" cy="270" r="10" fill="url(#goldWayang)"/>
+    <line x1="130" y1="240" x2="130" y2="340" stroke="url(#goldWayang)" stroke-width="2"/>
+
+    <!-- Right Arm Extended Towards Beloved -->
+    <path d="M 175,260 C 210,280 250,310 290,340 C 310,355 330,370 345,360 C 350,350 330,335 310,320 C 275,290 235,260 190,240 Z" fill="url(#goldWayang)"/>
+    <circle cx="215" cy="265" r="8" fill="url(#goldWayang)"/> <!-- Kelat Bahu -->
+    <circle cx="310" cy="340" r="7" fill="url(#goldWayang)"/> <!-- Gelang Kana -->
+
+    <!-- Dodot & Kain Batik Keraton (Lower Garment) -->
+    <path d="M 70,470 C 50,560 30,650 15,740 L 220,740 C 210,650 190,560 190,470 Z" fill="url(#soganWayang)" stroke="url(#goldWayang)" stroke-width="2.5"/>
+    <!-- Uncal Kencana / Golden Sash -->
+    <path d="M 120,470 L 115,720 L 145,720 L 140,470 Z" fill="url(#goldWayang)"/>
+    <!-- Keris Handle Silhouette (Hilt tucked behind back) -->
+    <path d="M 50,420 Q 40,390 30,400 Q 35,430 55,445 Z" fill="url(#goldWayang)"/>
+  </g>
+
+  <!-- RIGHT FIGURE: PUTRI / BRIDE (DEWI SHINTA / SRIKANDI SILHOUETTE) -->
+  <g transform="translate(420, 95) scale(0.68)" filter="url(#softGlow)">
+    <!-- Sanggul Gelung Tekuk & Ronce Melati (Hair Bun with Jasmine Garland) -->
+    <path d="M 230,110 C 270,90 290,130 280,165 C 265,205 210,210 185,185 C 200,150 210,120 230,110 Z" fill="url(#goldWayang)"/>
+    <!-- Jasmine Garland Ronce Melati hanging down from hair bun -->
+    <path d="M 270,170 Q 285,240 275,320 Q 260,240 260,175 Z" fill="#FAF8F5" stroke="url(#goldWayang)" stroke-width="1.5"/>
+    <circle cx="270" cy="210" r="5" fill="#FAF8F5"/>
+    <circle cx="273" cy="250" r="5" fill="#FAF8F5"/>
+    <circle cx="275" cy="290" r="4" fill="#FAF8F5"/>
+    <circle cx="275" cy="325" r="3.5" fill="#FAF8F5"/>
+
+    <!-- Cunduk Mentul (7 Royal Hairpins Swaying Gracefully) -->
+    <path d="M 170,50 L 155,10 M 185,55 L 180,5 M 200,65 L 205,8 M 215,80 L 230,20 M 155,60 L 130,25" stroke="url(#goldWayang)" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="155" cy="10" r="7" fill="url(#goldWayang)"/>
+    <circle cx="180" cy="5" r="8" fill="url(#goldWayang)"/>
+    <circle cx="205" cy="8" r="7" fill="url(#goldWayang)"/>
+    <circle cx="230" cy="20" r="6" fill="url(#goldWayang)"/>
+    <circle cx="130" cy="25" r="6" fill="url(#goldWayang)"/>
+
+    <!-- Princess Head & Profile: Anggun, Lembut -->
+    <path d="M 180,80 C 160,85 140,95 130,110 C 122,125 125,140 135,150 C 128,158 125,168 138,178 C 145,185 155,188 165,190 C 185,195 200,175 205,150 C 210,115 195,90 180,80 Z" fill="url(#goldWayang)"/>
+    <!-- Gentle Princess Eye -->
+    <path d="M 155,120 Q 140,122 135,115 Q 145,128 155,120 Z" fill="#2B1A12"/>
+    <!-- Subtle smile -->
+    <path d="M 150,162 Q 140,165 136,160" stroke="#2B1A12" stroke-width="2" fill="none"/>
+    <!-- Sumping (Princess Ear Jewel) -->
+    <path d="M 195,135 C 210,130 215,155 205,165 C 190,160 190,140 195,135 Z" fill="url(#goldWayang)"/>
+
+    <!-- Slender Princess Torso / Kemben Beludru & Kalung -->
+    <path d="M 175,190 C 185,230 195,270 200,310 C 205,360 190,420 180,480 C 160,480 110,480 95,480 C 90,410 95,350 105,300 C 120,240 145,195 160,190 Z" fill="url(#soganWayang)" stroke="url(#goldWayang)" stroke-width="2"/>
+    <!-- Kemben Golden Border -->
+    <path d="M 115,250 Q 150,235 185,250" stroke="url(#goldWayang)" stroke-width="3" fill="none"/>
+    <path d="M 130,220 Q 150,240 170,220" stroke="url(#goldWayang)" stroke-width="2" fill="none"/>
+
+    <!-- Left Arm Extended With Gesture (Sembahan / Menautkan Hati) -->
+    <path d="M 110,270 C 75,290 35,320 0,350 C -15,365 -25,360 -20,345 C -10,335 15,310 50,285 C 80,260 100,245 125,245 Z" fill="url(#goldWayang)"/>
+    <circle cx="70" cy="275" r="7" fill="url(#goldWayang)"/> <!-- Gelang Bahu -->
+    <circle cx="-5" cy="350" r="6" fill="url(#goldWayang)"/> <!-- Gelang Kana -->
+
+    <!-- Princess Kain Batik & Sampur (Flowing Silk Scarf) -->
+    <path d="M 95,480 C 110,570 125,660 140,750 L -15,750 C 0,660 30,570 45,480 Z" fill="url(#soganWayang)" stroke="url(#goldWayang)" stroke-width="2.5"/>
+    <!-- Flowing Sampur Silk Scarf -->
+    <path d="M 80,480 Q 20,580 50,750 Q 80,620 110,480 Z" fill="url(#goldWayang)" opacity="0.85"/>
+  </g>
+
+  <!-- Central Union Symbol: Subtle Golden Ring / Golden Lotus Petals -->
+  <g transform="translate(400, 315) scale(0.9)">
+    <ellipse cx="0" cy="0" rx="35" ry="12" fill="none" stroke="url(#goldWayang)" stroke-width="2" stroke-dasharray="6 3"/>
+    <circle cx="0" cy="-3" r="4" fill="#FFFFFF"/>
+    <!-- Small Jasmine Flower in Center of Hands Meeting -->
+    <circle cx="0" cy="0" r="6" fill="#FAF8F5"/>
+    <circle cx="0" cy="0" r="2" fill="#E6C875"/>
+    <circle cx="-6" cy="-4" r="4" fill="#FAF8F5"/>
+    <circle cx="6" cy="-4" r="4" fill="#FAF8F5"/>
+    <circle cx="-6" cy="4" r="4" fill="#FAF8F5"/>
+    <circle cx="6" cy="4" r="4" fill="#FAF8F5"/>
+  </g>
+</svg>
+

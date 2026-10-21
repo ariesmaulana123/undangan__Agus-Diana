@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <radialGradient id="batikGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#8C5835" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#2B1E16" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Kawung 4-Fold Petal Ellipses (Central Cross) -->
+  <!-- Top Center Petal -->
+  <ellipse cx="60" cy="30" rx="16" ry="26" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-opacity="0.25"/>
+  <ellipse cx="60" cy="30" rx="8" ry="14" fill="none" stroke="#C5A059" stroke-width="0.5" stroke-opacity="0.2"/>
+  <circle cx="60" cy="30" r="2.5" fill="#D4AF37" fill-opacity="0.3"/>
+
+  <!-- Bottom Center Petal -->
+  <ellipse cx="60" cy="90" rx="16" ry="26" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-opacity="0.25"/>
+  <ellipse cx="60" cy="90" rx="8" ry="14" fill="none" stroke="#C5A059" stroke-width="0.5" stroke-opacity="0.2"/>
+  <circle cx="60" cy="90" r="2.5" fill="#D4AF37" fill-opacity="0.3"/>
+
+  <!-- Left Center Petal -->
+  <ellipse cx="30" cy="60" rx="26" ry="16" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-opacity="0.25"/>
+  <ellipse cx="30" cy="60" rx="14" ry="8" fill="none" stroke="#C5A059" stroke-width="0.5" stroke-opacity="0.2"/>
+  <circle cx="30" cy="60" r="2.5" fill="#D4AF37" fill-opacity="0.3"/>
+
+  <!-- Right Center Petal -->
+  <ellipse cx="90" cy="60" rx="26" ry="16" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-opacity="0.25"/>
+  <ellipse cx="90" cy="60" rx="14" ry="8" fill="none" stroke="#C5A059" stroke-width="0.5" stroke-opacity="0.2"/>
+  <circle cx="90" cy="60" r="2.5" fill="#D4AF37" fill-opacity="0.3"/>
+
+  <!-- Corner Interlocking Petals (for Seamless Tiling) -->
+  <!-- Top Left -->
+  <ellipse cx="0" cy="0" rx="18" ry="18" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-opacity="0.2"/>
+  <circle cx="0" cy="0" r="3" fill="#D4AF37" fill-opacity="0.25"/>
+
+  <!-- Top Right -->
+  <ellipse cx="120" cy="0" rx="18" ry="18" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-opacity="0.2"/>
+  <circle cx="120" cy="0" r="3" fill="#D4AF37" fill-opacity="0.25"/>
+
+  <!-- Bottom Left -->
+  <ellipse cx="0" cy="120" rx="18" ry="18" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-opacity="0.2"/>
+  <circle cx="0" cy="120" r="3" fill="#D4AF37" fill-opacity="0.25"/>
+
+  <!-- Bottom Right -->
+  <ellipse cx="120" cy="120" rx="18" ry="18" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-opacity="0.2"/>
+  <circle cx="120" cy="120" r="3" fill="#D4AF37" fill-opacity="0.25"/>
+
+  <!-- Center Diamond (Truntum / Isen-isen Batik) -->
+  <polygon points="60,54 66,60 60,66 54,60" fill="none" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.4"/>
+  <circle cx="60" cy="60" r="2" fill="#D4AF37" fill-opacity="0.6"/>
+</svg>
+
