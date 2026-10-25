@@ -962,6 +962,17 @@ body.hide-music-control .floating-music-wrapper {
   color: #FFFFFF;
 }
 
+@media (max-width: 768px) {
+  .floating-music-wrapper {
+    bottom: 5.25rem;
+    right: 1.25rem;
+  }
+  .floating-music-btn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
 @media (max-width: 480px) {
   .floating-navbar {
     bottom: 1rem;
@@ -976,9 +987,11 @@ body.hide-music-control .floating-music-wrapper {
     width: 16px;
     height: 16px;
   }
+  .floating-music-wrapper {
+    bottom: 5rem;
+    right: 1rem;
+  }
   .floating-music-btn {
-    bottom: 5.5rem;
-    right: 1.25rem;
     width: 44px;
     height: 44px;
   }
