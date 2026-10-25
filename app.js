@@ -357,10 +357,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ----------------------------------------------------
-     7. RSVP FORM & WHATSAPP REDIRECT
+     7. RSVP FORM SUBMISSION (DIRECT TO WEB - NO WHATSAPP)
   ---------------------------------------------------- */
-  const DEFAULT_PHONE = '6281234567890'; // Destination WhatsApp number
-
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -375,72 +373,70 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Save wish locally
-      addWishToWall(name, status, message);
+      // Format status display
+      const displayStatus = (status === 'Hadir') 
+        ? `Hadir (${guestCount} Orang)` 
+        : status;
 
-      // Format WhatsApp Message
-      const waText = 
-`*KONFIRMASI KEHADIRAN PERNIKAHAN*
-*Diana & Agus Wedding*
-----------------------------------------
-*Nama:* ${name}
-*Jumlah Tamu:* ${guestCount} Orang
-*Status Kehadiran:* ${status}
-*Ucapan & Doa:* 
-"${message || 'Semoga menjadi keluarga sakinah, mawaddah, warahmah.'}"
-----------------------------------------
-Matur nuwun sanget.`;
+      const fullMessage = message || 'Selamat menempuh hidup baru. Semoga menjadi keluarga sakinah, mawaddah, warahmah.';
 
-      const encodedText = encodeURIComponent(waText);
-      const waUrl = `https://api.whatsapp.com/send?phone=${DEFAULT_PHONE}&text=${encodedText}`;
+      // Simpan ucapan langsung ke kolom pesan / buku tamu di web (tanpa ke WhatsApp)
+      addWishToWall(name, displayStatus, fullMessage);
 
-      showToast('Membuka WhatsApp untuk mengirim konfirmasi...');
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-      }, 600);
+      // Tampilkan notifikasi berhasil di website
+      showToast('Matur nuwun! Ucapan & konfirmasi kehadiran Anda berhasil dikirim.');
 
+      // Reset form input
       rsvpForm.reset();
+
+      // Gulir lembut ke daftar ucapan agar tamu dapat langsung melihat pesannya
+      if (wishesListContainer) {
+        wishesListContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     });
   }
 
   /* ----------------------------------------------------
-     8. INTERACTIVE WISHES WALL (BUKU TAMU DIGITAL)
+     8. INTERACTIVE WISHES WALL (BUKU TAMU DIGITAL WEB)
   ---------------------------------------------------- */
-  const INITIAL_WISHES = [
-    {
-      name: "Bpk. H. Bambang & Keluarga",
-      status: "Hadir",
-      message: "Ndherek bingah dhumateng Mas Agus & Mbak Diana. Mugi dados kaluwarga ingkang tansah pinaringan berkah, ayem tentrem, lan sakinah mawaddah warahmah.",
-      time: "2 jam yang lalu"
-    },
-    {
-      name: "Siti Rahmawati, S.Ked.",
-      status: "Hadir",
-      message: "Selamat ya Diana sahabatku! Cantik banget manglingi. Semoga lancar acaranya sampai hari H dan bahagia selamanya bersama suami tercinta.",
-      time: "4 jam yang lalu"
-    },
-    {
-      name: "Dimas Arya & Istri",
-      status: "Hadir",
-      message: "Selamat menempuh hidup baru Mas Agus & Mbak Diana! Semoga selalu rukun dan saling melengkapi dalam setiap langkah perjalanan rumah tangga.",
-      time: "Kemarin"
+  const STORAGE_KEY = 'wedding_wishes_diana_agus';
+
+  // Bersihkan data dummy atau riwayat pesan lama agar mulai bersih (fresh)
+  try {
+    const existing = localStorage.getItem(STORAGE_KEY);
+    if (existing && existing.includes('Bambang')) {
+      localStorage.removeItem(STORAGE_KEY);
     }
-  ];
+  } catch (e) {}
 
   function loadWishes() {
     if (!wishesListContainer) return;
 
     let storedWishes = [];
     try {
-      storedWishes = JSON.parse(localStorage.getItem('wedding_wishes_diana_agus')) || [];
+      storedWishes = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
     } catch (e) {
       storedWishes = [];
     }
 
-    const allWishes = [...storedWishes, ...INITIAL_WISHES];
     wishesListContainer.innerHTML = '';
 
-    allWishes.forEach(item => {
+    if (storedWishes.length === 0) {
+      const emptyCard = document.createElement('div');
+      emptyCard.className = 'wish-empty-card';
+      emptyCard.style.cssText = 'text-align: center; padding: 2.2rem 1.5rem; background: rgba(255, 255, 255, 0.6); border-radius: 16px; border: 1px dashed rgba(201, 136, 82, 0.4); color: #784520; font-size: 0.92rem; backdrop-filter: blur(8px);';
+      emptyCard.innerHTML = `
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#C98852" stroke-width="1.8" style="margin: 0 auto 0.65rem; display: block; opacity: 0.85;">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <p style="font-weight: 700; margin-bottom: 0.35rem; color: #4A2E1C; font-family: var(--font-serif-javanese); font-size: 1.05rem;">Belum Ada Ucapan</p>
+        <p style="font-size: 0.85rem; opacity: 0.9; margin: 0; color: #784520;">Jadilah yang pertama mengirimkan doa restu dan konfirmasi kehadiran untuk kedua mempelai di atas.</p>
+      `;
+      wishesListContainer.appendChild(emptyCard);
+      return;
+    }
+
+    storedWishes.forEach(item => {
       renderWishCard(item);
     });
   }
@@ -459,7 +455,7 @@ Matur nuwun sanget.`;
         <span class="wish-status-badge ${badgeClass}">${escapeHtml(item.status)}</span>
       </div>
       <p class="wish-message">${escapeHtml(item.message || 'Ndherek mangayubagya.')}</p>
-      <div class="wish-time">${item.time}</div>
+      <div class="wish-time">${item.time || 'Baru saja'}</div>
     `;
 
     wishesListContainer.appendChild(card);
@@ -475,18 +471,27 @@ Matur nuwun sanget.`;
 
     let storedWishes = [];
     try {
-      storedWishes = JSON.parse(localStorage.getItem('wedding_wishes_diana_agus')) || [];
+      storedWishes = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
     } catch (e) {
       storedWishes = [];
     }
 
     storedWishes.unshift(newWish);
     try {
-      localStorage.setItem('wedding_wishes_diana_agus', JSON.stringify(storedWishes));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(storedWishes));
     } catch (e) {}
 
     loadWishes();
   }
+
+  // Helper fungsi untuk bersihkan riwayat jika dibutuhkan
+  window.clearWishesHistory = function() {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      loadWishes();
+      showToast('Riwayat ucapan berhasil dibersihkan.');
+    } catch (e) {}
+  };
 
   function escapeHtml(text) {
     const div = document.createElement('div');
