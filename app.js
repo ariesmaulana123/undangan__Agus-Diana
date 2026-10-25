@@ -35,11 +35,133 @@ document.addEventListener('DOMContentLoaded', () => {
   parseGuestName();
 
   /* ----------------------------------------------------
-     2. AUDIO INTEGRATION
+     2. AUDIO INTEGRATION (audio.mp4 Background Music)
   ---------------------------------------------------- */
-  if (window.WeddingAudio && floatingMusicBtn) {
-    window.WeddingAudio.setUIElements(floatingMusicBtn, musicIcon);
-  }
+  const weddingAudio = document.getElementById('weddingAudio');
+  const musicTooltip = document.getElementById('musicTooltip');
+
+  const WeddingAudio = {
+    audio: weddingAudio,
+    btn: floatingMusicBtn,
+    icon: musicIcon,
+    tooltip: musicTooltip,
+    isPlaying: false,
+    userPaused: false,
+
+    init() {
+      if (!this.audio) {
+        this.audio = new Audio('audio.mp4');
+        this.audio.id = 'weddingAudio';
+        this.audio.loop = true;
+        this.audio.preload = 'auto';
+        document.body.appendChild(this.audio);
+      } else {
+        this.audio.loop = true;
+        this.audio.volume = 0.8;
+      }
+
+      // Audio Event Listeners to keep UI state in sync
+      this.audio.addEventListener('play', () => {
+        this.isPlaying = true;
+        this.updateUI(true);
+      });
+
+      this.audio.addEventListener('pause', () => {
+        this.isPlaying = false;
+        this.updateUI(false);
+      });
+
+      this.audio.addEventListener('ended', () => {
+        this.audio.currentTime = 0;
+        this.play();
+      });
+
+      // Toggle Music Button
+      if (this.btn) {
+        this.btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.toggle();
+        });
+      }
+
+      // Fallback resume on user interaction if initial autoplay was blocked
+      const resumeOnGesture = () => {
+        if (document.body.classList.contains('invitation-opened') && !this.isPlaying && !this.userPaused) {
+          this.play();
+        }
+      };
+      document.addEventListener('click', resumeOnGesture, { passive: true });
+      document.addEventListener('touchstart', resumeOnGesture, { passive: true });
+    },
+
+    setUIElements(btn, icon, tooltip) {
+      if (btn) this.btn = btn;
+      if (icon) this.icon = icon;
+      if (tooltip) this.tooltip = tooltip;
+    },
+
+    play() {
+      if (!this.audio) return;
+      this.userPaused = false;
+      const playPromise = this.audio.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            this.isPlaying = true;
+            this.updateUI(true);
+          })
+          .catch((err) => {
+            console.warn('Audio play auto-policy notice:', err);
+            this.isPlaying = false;
+            this.updateUI(false);
+          });
+      }
+    },
+
+    pause() {
+      if (!this.audio) return;
+      this.userPaused = true;
+      this.audio.pause();
+      this.isPlaying = false;
+      this.updateUI(false);
+    },
+
+    toggle() {
+      if (!this.audio) return;
+      if (this.isPlaying && !this.audio.paused) {
+        this.pause();
+      } else {
+        this.play();
+      }
+    },
+
+    updateUI(playing) {
+      if (this.btn) {
+        if (playing) {
+          this.btn.classList.add('is-playing');
+          this.btn.setAttribute('aria-label', 'Jeda Musik Latar');
+        } else {
+          this.btn.classList.remove('is-playing');
+          this.btn.setAttribute('aria-label', 'Putar Musik Latar');
+        }
+      }
+      if (this.icon) {
+        if (playing) {
+          // Pause icon inside vinyl center
+          this.icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+        } else {
+          // Play icon inside vinyl center
+          this.icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+        }
+      }
+      if (this.tooltip) {
+        this.tooltip.textContent = playing ? 'Jeda Musik' : 'Putar Musik';
+      }
+    }
+  };
+
+  WeddingAudio.init();
+  window.WeddingAudio = WeddingAudio;
 
   /* ----------------------------------------------------
      3. COVER UNLOCK & REVEAL INNER PAGE
